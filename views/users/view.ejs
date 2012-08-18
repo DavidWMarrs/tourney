@@ -16,10 +16,10 @@
 
 	<% } else { %>
 
-	    <h1>View <%= user.username %></h1>
+	    <h3><%= user.username %></h3>
 	    <p>Welcome to <%= user.username %></p>
 
-	    <h2>Teams</h2>
+	    <h4>Teams</h4>
 	    <% if (user.teams.length > 0) { %>
 		    <ul>
 		    	<% for (i = 0; i < user.teams.length; i++) { %>
@@ -30,6 +30,6 @@
 	    <% } else { %>
 	    	<p>You have no teams, loser. I bet you were picked last in sports lessons.</p>
 	    <% } %>
-	    
+
     <% } %>
 <% include ../footer.ejs %>

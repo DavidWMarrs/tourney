@@ -26,6 +26,8 @@ module.exports = function (models) {
                     console.log(err);
                     throw err;
                 };
+                console.log(user);
+                res.redirect('/user/view/' + user._id);
             })
         } else {
             res.render('users/create', {});
