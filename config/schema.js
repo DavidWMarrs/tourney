@@ -20,5 +20,11 @@ module.exports = function(mongoose) {
 	    tags: String
 	});
 
+    schema.team = new Schema({
+        name: String,
+        sport: String,
+        location: String
+    });
+
 	return schema;
 };

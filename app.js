@@ -9,7 +9,8 @@ var express = require('express')
   , mongoose = require('mongoose')
   , modelGenerator = require('./util/model_generator.js')
   , schema = require('./config/schema.js')(mongoose)
-  , config = require('./config/config.js');
+  , config = require('./config/config.js')
+  , util = require('./util/util.js');
 
 var connection = mongoose.createConnection(config.database);
 var models = modelGenerator(connection, schema);
@@ -17,6 +18,7 @@ var routes = {
     index: require('./routes')
     , user: require('./routes/user.js')(models)
     , tournament: require('./routes/tournament.js')
+    , team: require('./routes/team.js')(models)
 };
 
 var app = express();
@@ -45,6 +47,10 @@ app.post('/user/create', routes.user.create);
 app.get('/tournament', routes.tournament.index);
 app.get('/tournament/:id', routes.tournament.get);
 app.post('/tournament', routes.tournament.create);
+app.get('/team', routes.team.index);
+app.get('/team/view/:id', routes.team.get);
+app.get('/team/create', routes.team.create);
+app.post('/team/create', routes.team.create);
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
