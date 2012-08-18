@@ -1,4 +1,24 @@
 <% include ../header.ejs %>
+
+	<div class="row">
+		<div class="span12">
+			<h1>Team Details</h1>
+		</div>
+	</div>
+	
+	<% if (team === null) { %>
+	
+	<div class="row shift-down">
+		<div class="span12">
+			<div class="alert alert-error">Unable to find team</div>
+		</div>
+	</div>
+	
+	<% } else { %>
+
     <h1>View <%= team.name %></h1>
     <p>Team Captain <%= team.owner %></p>
+    
+    <% } %>
+    
 <% include ../footer.ejs %>

@@ -1,7 +1,40 @@
 <% include ../header.ejs %>
-    <h1>Lists all teams</h1>
-    <% for (var i = 0; i < teams.length; i++) {
-        var team = teams[i] %>
-        <p><%= team.name %></p>
-    <% } %>
+
+
+    <div class="row">
+		<div class="span12">
+			<h1>All Teams</h1>
+		</div>
+		<div class="span12">
+			<a href="/team/create">Register a team</a>
+		</div>
+	</div>
+	
+	<% if (typeof teams == 'undefined') { %>
+    
+	<div class="row shift-down">
+		<div class="span12">
+			<div class="alert alert-warning"><strong>There are no teams in the database!</strong></div>	
+		</div>
+	</div>
+    
+    <% } else { %>
+    
+    <table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Team</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for (var i = 0; i < teams.length; i++) { %>
+			<tr>
+				<% var user = teams[i] %>
+				<td><a href="team/view/<%= team._id %>"><%= team.name %></a></td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+	
+	<% } %>
 <% include ../footer.ejs %>
