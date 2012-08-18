@@ -8,17 +8,19 @@ var express = require('express')
   , path = require('path')
   , mongoose = require('mongoose')
   , modelGenerator = require('./util/model_generator.js')
+  , router = require('./util/router.js')
   , schema = require('./config/schema.js')(mongoose)
   , config = require('./config/config.js')
+  , routes = require('./config/routes.js')
   , util = require('./util/util.js');
 
 var connection = mongoose.createConnection(config.database);
 var models = modelGenerator(connection, schema);
-var routes = {
-    index: require('./routes')
-    , user: require('./routes/user.js')(models)
-    , tournament: require('./routes/tournament.js')
-    , team: require('./routes/team.js')(models)
+var controllers = {
+    index: require('./controllers')
+    , user: require('./controllers/user.js')(models)
+    , tournament: require('./controllers/tournament.js')
+    , team: require('./controllers/team.js')(models)
 };
 
 var app = express();
@@ -39,18 +41,7 @@ app.configure('development', function () {
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index.index);
-app.get('/user', routes.user.index);
-app.get('/user/view/:id', routes.user.get);
-app.get('/user/create', routes.user.create);
-app.post('/user/create', routes.user.create);
-app.get('/tournament', routes.tournament.index);
-app.get('/tournament/:id', routes.tournament.get);
-app.post('/tournament', routes.tournament.create);
-app.get('/team', routes.team.index);
-app.get('/team/view/:id', routes.team.get);
-app.get('/team/create', routes.team.create);
-app.post('/team/create', routes.team.create);
+router(app, routes, controllers);
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
