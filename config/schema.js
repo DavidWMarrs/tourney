@@ -1,17 +1,24 @@
-var userSchema = new Schema({
-    email:  String,
-    username: String,
-    password: String
-});
+module.exports = function(mongoose) {
+	var Schema = mongoose.Schema;
+	var schemas = {};
 
-var teamSchema = new Schema({
-    name: String,
-    owner: Number
-});
+	schemas.user = new Schema({
+	    email:  String,
+	    username: String,
+	    password: String
+	});
 
-var eventSchema = new Schema({
-    name: String,
-    dateStarting: Date,
-    sport: String,
-    tags: String
-});
+	schemas.team = new Schema({
+	    name: String,
+	    owner: Number
+	});
+
+	schemas.event = new Schema({
+	    name: String,
+	    dateStarting: Date,
+	    sport: String,
+	    tags: String
+	});
+
+	return schemas;
+};
