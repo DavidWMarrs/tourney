@@ -7,6 +7,11 @@ a {
   color: #00B7FF;
 }
 
+h1 {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 15px;
+}
+
 .shift-down {
   padding-top: 35px;
 }

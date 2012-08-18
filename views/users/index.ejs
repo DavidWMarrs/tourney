@@ -1,7 +1,38 @@
 <% include ../header.ejs %>
-    <h1>Lists all users</h1>
-    <% for (var i = 0; i < users.length; i++) {
-        var user = users[i] %>
-        <p><%= user.username %></p>
-    <% } %>
+
+    <div class="row">
+		<div class="span12">
+			<h1>All registered users</h1>
+		</div>
+		<div class="span12">
+			<a href="/user/create">Register a user</a>
+		</div>
+	</div>
+    
+    <% if (typeof users == 'undefined') { %>
+	<div class="row shift-down">
+		<div class="span12">
+			<div class="alert alert-warning"><strong>There are no players in the database!</strong></div>	
+		</div>
+	</div>
+		
+    <% } else { %>
+    
+    <table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Username</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<% for (var i = 0; i < users.length; i++) { %>
+				<% var user = users[i] %>
+				<td><%= user.username %></td>
+			<% } %>
+			</tr>
+		</tbody>
+	</table>
+	
+	<% } %>
 <% include ../footer.ejs %>
