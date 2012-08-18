@@ -20,5 +20,5 @@ module.exports = function(mongoose) {
 	    tags: String
 	});
 
-	return schemas;
+	return schema;
 };
