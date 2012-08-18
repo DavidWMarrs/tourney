@@ -8,5 +8,5 @@ exports.get = function (req, res) {
 };
 
 exports.create = function (req, res) {
-
+    res.render('tournaments/create', {});
 };
