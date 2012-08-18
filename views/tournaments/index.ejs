@@ -5,14 +5,14 @@
 			<h1>All tournaments</h1>
 		</div>
 		<div class="span12">
-			<a href="/user/create">Create a tournament</a>
+			<a href="/tournament/create">Create a tournament</a>
 		</div>
 	</div>
     
-    <% if (typeof users == 'undefined') { %>
+    <% if (typeof tournaments == 'undefined') { %>
 	<div class="row shift-down">
 		<div class="span12">
-			<div class="alert alert-warning"><strong>There are no players in the database!</strong></div>	
+			<div class="alert alert-warning"><strong>There are no tournaments in the database!</strong></div>	
 		</div>
 	</div>
 		
@@ -21,14 +21,16 @@
     <table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Username</th>
+				<th>Tournament</th>
+				<th>Start Date</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-			<% for (var i = 0; i < users.length; i++) { %>
-				<% var user = users[i] %>
-				<td><%= user.username %></td>
+			<% for (var i = 0; i < tournaments.length; i++) { %>
+				<% var tournament = tournaments[i] %>
+				<td><%= tournaments.name %></td>
+				<td><%= tournaments.dateStarted %></td>
 			<% } %>
 			</tr>
 		</tbody>
