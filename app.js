@@ -9,7 +9,8 @@ var express = require('express')
   , mongoose = require('mongoose')
   , modelGenerator = require('./util/model_generator.js')
   , schema = require('./config/schema.js')(mongoose)
-  , config = require('./config/config.js');
+  , config = require('./config/config.js')
+  , util = require('./util/util.js');
 
 var connection = mongoose.createConnection(config.database);
 var models = modelGenerator(connection, schema);
