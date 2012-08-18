@@ -8,7 +8,7 @@ module.exports = function (models) {
     }
 
     context.get = function (req, res) {
-        models.team.findOne({name: req.params.id}, function(err, team) {
+		models.team.findOne({_id: req.params.id}, function(err, team) {
             if (err) {
                 console.log(err);
                 throw err;

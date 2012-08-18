@@ -21,7 +21,7 @@ var models = modelGenerator(connection, schema);
 var controllers = {
       index: require('./controllers')
     , user: require('./controllers/user.js')(models)
-    , tournament: require('./controllers/tournament.js')
+    , tournament: require('./controllers/tournament.js')(models)
     , team: require('./controllers/team.js')(models)
 };
 

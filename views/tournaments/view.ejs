@@ -15,10 +15,26 @@
 	</div>
 	
 	<% } else { %>
-	
-    <h3><%= tournament.name %></h3>
-    <p>Welcome to <%= tournament.name %></p>
-    
+	<div class="row">
+        <div class="span6">
+            <h3><%= tournament.name %></h3>
+            <p>Tournament runs from <%= tournament.start_date %> to <%= tournament.end_date %></p>
+        </div>
+        
+        <div class="span6">
+            <h3>Teams Involved</h3>
+            <% if (typeof tournament.teams === 'undefined') { %>
+            <div class="row">
+                <div class="span5">
+                    <div class="alert alert-warning">No teams are registered</div>
+                </div>
+            </div>
+            <% } else { %>
+                <% for(var i = 0; i < tournament.teams.length; i++) { %>
+                    s
+                <% } %>
+            <% } %>
+        </div>    
     <% } %>
     
 <% include ../footer.ejs %>
