@@ -10,6 +10,7 @@
     "ejs": "*",
     "mongoose": "*",
     "connect-lesscss": "*",
-    "passport": "*" 
+    "passport": "*",
+    "passport-local": "*"
   }
 }

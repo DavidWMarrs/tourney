@@ -1,4 +1,4 @@
-module.exports = function (models) {
+module.exports = function (models, passport) {
     var context = {};
 
     context.index = function (req, res) {
@@ -33,6 +33,16 @@ module.exports = function (models) {
             res.render('users/create', {});
         }
     };
+    
+    context.login = function (req, res) {
+		if(req.route.method === 'post') {
+			passport.authenticate('local', { successRedirect: '/tournament',
+                                   failureRedirect: '/login',
+                                   failureFlash: true });
+		} else {
+			res.render('users/login', {});
+		}
+	};
 
     return context;
 };

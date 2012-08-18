@@ -15,11 +15,14 @@ var express = require('express')
   , util = require('./util/util.js')
   , less = require('connect-lesscss');
 
+
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 var connection = mongoose.createConnection(config.database);
 var models = modelGenerator(connection, schema);
 var controllers = {
     index: require('./controllers')
-    , user: require('./controllers/user.js')(models)
+    , user: require('./controllers/user.js')(models, passport)
     , tournament: require('./controllers/tournament.js')
     , team: require('./controllers/team.js')(models)
 };

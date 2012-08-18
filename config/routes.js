@@ -3,6 +3,7 @@ module.exports = [
   {route: '/user', controller: 'user', action: 'index', method: 'get'},
   {route: '/user/view/:id', controller: 'user', action: 'get', method: 'get'},
   {route: '/user/create', controller: 'user', action: 'create', method: 'both'},
+  {route: '/login', controller: 'user', action: 'login', method: 'both'},
   {route: '/team', controller: 'team', action: 'index', method: 'get'},
   {route: '/team/view/:id', controller: 'team', action: 'index', method: 'get'},
   {route: '/team/create', controller: 'team', action: 'create', method: 'both'},
