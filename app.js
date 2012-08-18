@@ -12,7 +12,8 @@ var express = require('express')
   , schema = require('./config/schema.js')(mongoose)
   , config = require('./config/config.js')
   , routes = require('./config/routes.js')
-  , util = require('./util/util.js');
+  , util = require('./util/util.js')
+  , less = require('connect-lesscss');
 
 var connection = mongoose.createConnection(config.database);
 var models = modelGenerator(connection, schema);
@@ -35,6 +36,7 @@ app.configure(function () {
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
+  app.use("/css/styles.css", less("public/less/styles.less", {paths: ["public/less"]}));
 });
 
 app.configure('development', function () {
