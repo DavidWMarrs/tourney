@@ -2,7 +2,9 @@ module.exports = function (models) {
     var context = {};
 
     context.index = function (req, res) {
-        res.render('users/index', {});
+        models.user.find(function (err, users) {
+            res.render('users/index', {users: users});
+        })
     }
 
     context.get = function (req, res) {

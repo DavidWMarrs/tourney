@@ -1,3 +1,7 @@
 <% include ../header.ejs %>
     <h1>Lists all teams</h1>
+    <% for (var i = 0; i < teams.length; i++) {
+        var team = teams[i] %>
+        <p><%= team.name %></p>
+    <% } %>
 <% include ../footer.ejs %>
