@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -9,16 +8,18 @@ var express = require('express')
   , mongoose = require('mongoose')
   , modelGenerator = require('./util/model_generator.js')
   , router = require('./util/router.js')
-  , schema = require('./config/schema.js')(mongoose)
   , config = require('./config/config.js')
   , routes = require('./config/routes.js')
   , util = require('./util/util.js')
-  , less = require('connect-lesscss');
+  , less = require('connect-lesscss')
+  , passport = require('passport')
+  , bcrypt = require('./util/mock_bcrypt.js')
+  , schema = require('./config/schema.js')(mongoose, passport, bcrypt);
 
 var connection = mongoose.createConnection(config.database);
 var models = modelGenerator(connection, schema);
 var controllers = {
-    index: require('./controllers')
+      index: require('./controllers')
     , user: require('./controllers/user.js')(models)
     , tournament: require('./controllers/tournament.js')
     , team: require('./controllers/team.js')(models)
