@@ -23,6 +23,7 @@ module.exports = function(mongoose) {
     schema.team = new Schema({
         name: String,
         sport: String,
+        owner: String,
         location: String
     });
 
