@@ -6,8 +6,10 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path');
-
+  , path = require('path')
+  , mongo = require('mongodb')
+  , mongoose = require('mongoose');
+    
 var app = express();
 
 app.configure(function(){
