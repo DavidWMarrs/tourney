@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= user.name %></title>
-    <link rel='stylesheet' href='/css/style.css' />
-  </head>
-  <body>
+<% include ../header.ejs %>
     <h1>View <%= user.username %></h1>
     <p>Welcome to <%= user.username %></p>
-  </body>
-</html>
+<% include ../footer.ejs %>
