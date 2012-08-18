@@ -1,0 +1,10 @@
+<% include ../header.ejs %>
+    <h1>Create new team</h1>
+    <form id="team" name="team" action="/team/create" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="text" name="name" id="name"/>Name<br />
+        <input type="text" name="sport" id="sport"/>Sport<br />
+        <input type="text" name="owner" id="owner"/>Owner<br />
+        <input type="text" name="location" id="location"/>Location<br />
+        <input type="submit" value="SUBMIT" />
+    </form>
+<% include ../footer.ejs %>
