@@ -1,12 +1,34 @@
-exports.index = function (req, res) {
-    res.render('users/index', {});
-}
+module.exports = function (models) {
+    var context = {};
 
-exports.get = function (req, res) {
-    var user = {name: 'Joe'};
-    res.render('users/view', { user: user });
-};
+    context.index = function (req, res) {
+        res.render('users/index', {});
+    }
 
-exports.create = function (req, res) {
+    context.get = function (req, res) {
+        models.user.findOne({username: req.params.id}, function(err, user) {
+            if (err) {
+                console.log(err);
+                throw err;
+            }
+            res.render('users/view', { user: user });
+        });
+    };
 
+    context.create = function (req, res) {
+        if (req.route.method === 'post') {
+            var user = new models.user(req.body.user);
+            user.save(function (err) {
+                if (err) {
+                    //don't really care at the moment
+                    console.log(err);
+                    throw err;
+                }
+            })
+        } else {
+            res.render('users/create', {});
+        }
+    };
+
+    return context;
 };
