@@ -8,14 +8,15 @@ module.exports = function(mongoose) {
 	    password: String
 	});
 
-	schema.team = new Schema({
+	/*schema.team = new Schema({
 	    name: String,
 	    owner: Number
-	});
+	});*/
 
-	schema.event = new Schema({
+	schema.tournament = new Schema({
 	    name: String,
-	    dateStarting: Date,
+	    start_date: Date/*String*/,
+		end_date: Date/*String*/,
 	    sport: String,
 	    tags: String
 	});

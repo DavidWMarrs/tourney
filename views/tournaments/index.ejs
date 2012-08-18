@@ -23,16 +23,22 @@
 			<tr>
 				<th>Tournament</th>
 				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Sport</th>
+				<th>Tags</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
 			<% for (var i = 0; i < tournaments.length; i++) { %>
+			<tr>
 				<% var tournament = tournaments[i] %>
-				<td><%= tournaments.name %></td>
-				<td><%= tournaments.dateStarted %></td>
-			<% } %>
+				<td><a href="/tournament/view/<%= tournament.id %>"><%= tournament.name %></a></td>
+				<td><%= tournament.start_date %></td>
+				<td><%= tournament.end_date %></td>
+				<td><%= tournament.sport %></td>
+				<td><%= tournament.tags %></td>
 			</tr>
+			<% } %>
 		</tbody>
 	</table>
 	
