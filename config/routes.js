@@ -7,6 +7,7 @@ module.exports = [
   {route: '/team/view/:id', controller: 'team', action: 'index', method: 'get'},
   {route: '/team/create', controller: 'team', action: 'index', method: 'both'},
   {route: '/tournament', controller: 'tournament', action: 'index', method: 'get'},
-  {route: '/tournament/:id', controller: 'tournament', action: 'get', method: 'get'},
-  {route: '/tournament', controller: 'tournament', action: 'create', method: 'post'}
+  {route: '/tournament/view/:id', controller: 'tournament', action: 'get', method: 'get'},
+  {route: '/tournament/create', controller: 'tournament', action: 'create', method: 'post'},
+  {route: '/tournament/create', controller: 'tournament', action: 'create', method: 'get'}
 ];
