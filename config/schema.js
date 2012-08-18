@@ -1,19 +1,19 @@
 module.exports = function(mongoose) {
 	var Schema = mongoose.Schema;
-	var schemas = {};
+	var schema = {};
 
-	schemas.user = new Schema({
+	schema.user = new Schema({
 	    email:  String,
 	    username: String,
 	    password: String
 	});
 
-	schemas.team = new Schema({
+	schema.team = new Schema({
 	    name: String,
 	    owner: Number
 	});
 
-	schemas.event = new Schema({
+	schema.event = new Schema({
 	    name: String,
 	    dateStarting: Date,
 	    sport: String,

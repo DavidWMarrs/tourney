@@ -1,4 +1,4 @@
-module.exports = function(mongoose, schemas) {
+module.exports = function(mongoose, schema) {
   var utils = require('../node_modules/mongoose/lib/utils.js');
 
   // Sync method for adding/updating models
@@ -14,8 +14,8 @@ module.exports = function(mongoose, schemas) {
 
   // Define models
   var models = {};
-  for (i in schemas) {
-    models[i] = mongoose.model(i, schemas[i]);
+  for (i in schema) {
+    models[i] = mongoose.model(i, schema[i]);
     models[i].sync = sync;
     models[i].collectionName = utils.toCollectionName(i);
   }

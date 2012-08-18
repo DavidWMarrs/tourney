@@ -14,13 +14,16 @@ var express = require('express')
   , mongo = require('mongodb')
   , mongoose = require('mongoose')
   , modelGenerator = require('./util/model_generator.js')
-  , schema = require('./config/schema.js')
+  , schema = require('./config/schema.js')(mongoose)
   , config = require('./config/config.js');
 
 var connection = mongoose.createConnection(config.database);
 var models = modelGenerator(connection, schema);
 
 var app = express();
+
+console.log(schema);
+console.log(models);
 
 app.configure(function () {
   app.set('port', process.env.PORT || 3000);
