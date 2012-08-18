@@ -1,4 +1,22 @@
 <% include ../header.ejs %>
+	
+	<div class="row">
+		<div class="span12">
+			<h1>Player Details</h1>
+		</div>
+	</div>
+	
+	<% if (user === null) { %>
+	
+	<div class="row shift-down">
+		<div class="span12">
+			<div class="alert alert-error">Unable to find player</div>
+		</div>
+	</div>
+	<% } else { %>
+
     <h1>View <%= user.username %></h1>
     <p>Welcome to <%= user.username %></p>
+    
+    <% } %>
 <% include ../footer.ejs %>
