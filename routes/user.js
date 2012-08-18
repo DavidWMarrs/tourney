@@ -17,13 +17,14 @@ module.exports = function (models) {
 
     context.create = function (req, res) {
         if (req.route.method === 'post') {
-            var user = new models.user(req.body.user);
-            user.save(function (err) {
+            console.log(req.body);
+            var user = new models.user(req.body);
+            user.save(function (err, user) {
                 if (err) {
                     //don't really care at the moment
                     console.log(err);
                     throw err;
-                }
+                };
             })
         } else {
             res.render('users/create', {});
