@@ -11,7 +11,7 @@ var express = require('express')
     }
   , http = require('http')
   , path = require('path')
-  , mongo = require('mongodb')
+  //, mongo = require('mongodb')
   , mongoose = require('mongoose')
   , modelGenerator = require('./util/model_generator.js')
   , schema = require('./config/schema.js')(mongoose)
