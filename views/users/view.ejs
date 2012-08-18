@@ -8,15 +8,28 @@
 	
 	<% if (user === null) { %>
 	
-	<div class="row shift-down">
-		<div class="span12">
-			<div class="alert alert-error">Unable to find player</div>
+		<div class="row shift-down">
+			<div class="span12">
+				<div class="alert alert-error">Unable to find player</div>
+			</div>
 		</div>
-	</div>
+
 	<% } else { %>
 
-    <h1>View <%= user.username %></h1>
-    <p>Welcome to <%= user.username %></p>
-    
+	    <h1>View <%= user.username %></h1>
+	    <p>Welcome to <%= user.username %></p>
+
+	    <h2>Teams</h2>
+	    <% if (user.teams.length > 0) { %>
+		    <ul>
+		    	<% for (i = 0; i < user.teams.length; i++) { %>
+		    		<% var team = user.teams[i] %>
+		    		<li><%= team.name %></li>
+		    	<% } %>
+		    </ul>
+	    <% } else { %>
+	    	<p>You have no teams, loser. I bet you were picked last in sports lessons.</p>
+	    <% } %>
+	    
     <% } %>
 <% include ../footer.ejs %>
