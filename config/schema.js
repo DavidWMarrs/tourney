@@ -22,7 +22,8 @@ module.exports = function(mongoose) {
 	    start_date: Date/*String*/,
 		end_date: Date/*String*/,
 	    sport: String,
-	    tags: String
+	    tags: String,
+        users: [{type: Schema.ObjectId, ref: 'users'}]
 	});
 
 	return schema;
