@@ -1,4 +1,24 @@
 <% include ../header.ejs %>
+	
+	<div class="row">
+		<div class="span12">
+			<h1>Tournament Details</h1>
+		</div>
+	</div>
+	
+	<% if (tournament === null ) { %>
+	
+	<div class="row shift-down">
+		<div class="span12">
+			<div class="alert alert-error">Unable to find tournament</div>
+		</div>
+	</div>
+	
+	<% } else { %>
+	
     <h1>View <%= tournament.name %></h1>
     <p>Welcome to <%= tournament.name %></p>
+    
+    <% } %>
+    
 <% include ../footer.ejs %>
