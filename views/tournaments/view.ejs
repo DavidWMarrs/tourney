@@ -15,14 +15,15 @@
 	</div>
 	
 	<% } else { %>
-	<div class="row">
+	<div class="row shift-down">
         <div class="span6">
             <h3><%= tournament.name %></h3>
-            <p>Tournament runs from <%= tournament.start_date %> to <%= tournament.end_date %></p>
+            <p>From <%= tournament.start_date %> <br/>to <%= tournament.end_date %></p>
         </div>
         
         <div class="span6">
             <h3>Teams Involved</h3>
+            <a href="/error">Invite a Team</a>
             <% if (typeof tournament.teams === 'undefined') { %>
             <div class="row">
                 <div class="span5">
