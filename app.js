@@ -10,8 +10,10 @@ var express = require('express')
         , tournament: require('./routes/tournament.js')
     }
   , http = require('http')
-  , path = require('path');
-
+  , path = require('path')
+  , mongo = require('mongodb')
+  , mongoose = require('mongoose');
+    
 var app = express();
 
 app.configure(function () {
