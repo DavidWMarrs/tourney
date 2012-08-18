@@ -28,7 +28,7 @@
 			<% for (var i = 0; i < users.length; i++) { %>
 			<tr>
 				<% var user = users[i] %>
-				<td><%= user.username %></td>
+				<td><a href="user/view/<%= user._id %>"><%= user.username %></a></td>
 			</tr>
 			<% } %>
 		</tbody>
